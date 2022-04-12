@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".HomeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_bg"
+            android:onClick="triggerEvent"
+            android:text="Complete Referral" />
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Set Event after Setting Referral Code and New User"
+            android:textAlignment="center" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="20dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_bg"
+            android:onClick="navigateToOffers"
+            android:text="INVITE AND EARN" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="10dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_bg"
+            android:onClick="navigateToHistory"
+            android:text="Referral History" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="10dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_bg"
+            android:onClick="showRererralCount"
+            android:text="Referral Count" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="10dp" />
+
+    </LinearLayout>
+
+</FrameLayout>

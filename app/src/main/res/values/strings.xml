@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Flyy Invite Earn Demo</string>
+    <string name="sdk_setup">SDK Setup</string>
+    <string name="package_name">package_name</string>
+    <string name="partner_id">partner_id</string>
+    <string name="pref">pref</string>
+</resources>

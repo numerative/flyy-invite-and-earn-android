@@ -9,10 +9,13 @@
         <entry key="..\:/Users/Michael/AndroidStudioProjects/FlyyInviteEarnDemo/app/src/main/res/layout/activity_login.xml" value="0.5" />
         <entry key="..\:/Users/Michael/AndroidStudioProjects/FlyyInviteEarnDemo/app/src/main/res/layout/activity_set_referral.xml" value="0.358695652173913" />
         <entry key="..\:/Users/Michael/AndroidStudioProjects/FlyyInviteEarnDemo/app/src/main/res/layout/activity_setup.xml" value="0.3515625" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.3265625" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.3265625" />
+        <entry key="app/src/main/res/layout/activity_setup.xml" value="0.3265625" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

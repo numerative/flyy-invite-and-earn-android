@@ -64,6 +64,7 @@
             android:background="@drawable/edittext_bg"
             android:gravity="left"
             android:hint="User Id"
+            android:text="user001"
             android:imeOptions="actionNext"
             android:inputType="textShortMessage"
             android:padding="10dp"

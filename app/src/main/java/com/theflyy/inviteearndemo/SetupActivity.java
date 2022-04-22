@@ -35,22 +35,7 @@ public class SetupActivity extends AppCompatActivity {
         String packageName = sharedPref.getString(getString(R.string.package_name), "");
         String partnerId = sharedPref.getString(getString(R.string.partner_id), "");
         if (!packageName.isEmpty() && !partnerId.isEmpty()) {
-            String mPackageName = sharedPref.getString(getString(R.string.package_name), "");
-            String mPartnerId = sharedPref.getString(getString(R.string.partner_id), "");
-            Flyy.setPackageName(mPackageName);
-            Flyy.init(getApplicationContext(), mPartnerId, Flyy.STAGE, new FlyyReferrerDataListener() {
-                @Override
-                public void onReferrerDataReceived(String s) {
-                    System.out.print(s);
-                }
-
-                @Override
-                public void onReferralCodeWithDataReceived(String[] strings) {
-                    for (String string : strings) {
-                        System.out.print(string);
-                    }
-                }
-            });
+            initialize(packageName, partnerId);
             navigateToHome();
         }
 
@@ -60,24 +45,7 @@ public class SetupActivity extends AppCompatActivity {
             String mPackageName = binding.editTextPackageName.getText().toString();
             String mPartnerId = binding.editTextPartnerId.getText().toString();
             if (!mPackageName.isEmpty() && !mPartnerId.isEmpty()) {
-                sharedPref.edit().putString(getString(R.string.package_name), mPackageName).apply();
-                sharedPref.edit().putString(getString(R.string.partner_id), mPartnerId).apply();
-
-                Flyy.setPackageName(mPackageName);
-                Flyy.init(getApplicationContext(), mPartnerId, Flyy.STAGE, new FlyyReferrerDataListener() {
-                    @Override
-                    public void onReferrerDataReceived(String s) {
-                        System.out.print(s);
-                    }
-
-                    @Override
-                    public void onReferralCodeWithDataReceived(String[] strings) {
-                        for (String string : strings) {
-                            System.out.print(string);
-                        }
-                    }
-                });
-
+                initialize(mPackageName, mPartnerId);
                 navigateToHome();
             } else {
                 Toast.makeText(this, "Fields cannot be empty", Toast.LENGTH_SHORT).show();
@@ -85,6 +53,26 @@ public class SetupActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    private void initialize(String packageName, String partnerId) {
+
+        Flyy.setPackageName(packageName);
+        Flyy.init(getApplicationContext(), partnerId, Flyy.STAGE, new FlyyReferrerDataListener() {
+            @Override
+            public void onReferrerDataReceived(String s) {
+                System.out.print(s);
+                Toast.makeText(SetupActivity.this, s, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onReferralCodeWithDataReceived(String[] strings) {
+                for (String string : strings) {
+                    System.out.print(string);
+                    Toast.makeText(SetupActivity.this, string, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     private void navigateToHome() {

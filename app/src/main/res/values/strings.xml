@@ -4,4 +4,5 @@
     <string name="package_name">package_name</string>
     <string name="partner_id">partner_id</string>
     <string name="pref">pref</string>
+    <string name="key_event_key">event_key</string>
 </resources>

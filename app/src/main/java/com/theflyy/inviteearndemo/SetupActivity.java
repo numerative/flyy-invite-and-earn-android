@@ -61,16 +61,19 @@ public class SetupActivity extends AppCompatActivity {
         Flyy.init(getApplicationContext(), partnerId, Flyy.STAGE, new FlyyReferrerDataListener() {
             @Override
             public void onReferrerDataReceived(String s) {
-                System.out.print(s);
-                Toast.makeText(SetupActivity.this, s, Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
             public void onReferralCodeWithDataReceived(String[] strings) {
-                for (String string : strings) {
-                    System.out.print(string);
-                    Toast.makeText(SetupActivity.this, string, Toast.LENGTH_SHORT).show();
-                }
+                Flyy.verifyReferralCode(SetupActivity.this, strings[0], (isValid, referralCode) ->
+                {
+                    if (isValid) {
+                        Toast.makeText(SetupActivity.this, referralCode + " is valid.", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(SetupActivity.this, "Referral Code is invalid.", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
     }

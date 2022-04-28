@@ -16,11 +16,14 @@ import theflyy.com.flyy.Flyy;
 public class LoginActivity extends AppCompatActivity {
 
     ActivityLoginBinding binding;
+    SharedPreferences preferences;
+    SharedPreferences.OnSharedPreferenceChangeListener listener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
+        preferences = this.getSharedPreferences(getString(R.string.pref), Context.MODE_PRIVATE);
 
         setContentView(binding.getRoot());
 
@@ -48,6 +51,26 @@ public class LoginActivity extends AppCompatActivity {
             preferences.edit().clear().commit();
             navigateToSetup();
         });
+
+        //Set Referral Code if available
+        listener = new SharedPreferences.OnSharedPreferenceChangeListener() {
+            public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+                if (key.equalsIgnoreCase(getString(R.string.key_ref_code))) {
+                    String refCode = prefs.getString(getString(R.string.key_ref_code), "");
+                    binding.editTextReferral.setText(refCode);
+                    unregisterAndRemove();
+                }
+            }
+        };
+
+        preferences.registerOnSharedPreferenceChangeListener(listener);
+    }
+
+    //Remove from Shared Pref once referral code is set.
+    private void unregisterAndRemove() {
+        preferences.unregisterOnSharedPreferenceChangeListener(listener);
+        preferences.edit().remove(getString(R.string.key_ref_code)).apply();
+
     }
 
     private void navigateToHome() {

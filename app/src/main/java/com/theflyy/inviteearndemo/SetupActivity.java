@@ -70,6 +70,7 @@ public class SetupActivity extends AppCompatActivity {
                 {
                     if (isValid) {
                         Toast.makeText(SetupActivity.this, referralCode + " is valid.", Toast.LENGTH_SHORT).show();
+                        sharedPref.edit().putString(getString(R.string.key_ref_code), referralCode).commit();
                     } else {
                         Toast.makeText(SetupActivity.this, "Referral Code is invalid.", Toast.LENGTH_SHORT).show();
                     }

@@ -5,4 +5,5 @@
     <string name="partner_id">partner_id</string>
     <string name="pref">pref</string>
     <string name="key_event_key">event_key</string>
+    <string name="key_ref_code">ref_code</string>
 </resources>
